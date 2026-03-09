@@ -4,7 +4,7 @@ UART_HandleTypeDef huart1;
 
 int _write(int file, char *ptr, int len)
 {
-  (void)file;
+  (void)file; // to avoid shitty compiler warnings
   HAL_UART_Transmit(&huart1, (uint8_t*)ptr, len, HAL_MAX_DELAY);
   return len;
 }
@@ -115,3 +115,4 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
+
